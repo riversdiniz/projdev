@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Impram</b>AM',
+    'logo' => '<b>Super</b>Gestão',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -246,9 +246,16 @@ return [
         //     'url'  => 'admin/blog',
         //     'can'  => 'manage-blog',
         // ],
+                [
+            'text'        => 'Dashboard',
+            'url'         => 'pages/dashboard',
+            'icon'        => 'fas fa-tachometer-alt',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+        ],
         [
             'text'        => 'Qualidade BNC',
-            'url'         => 'pages/defeitos',
+            'url'         => 'pages/pesqdef',
             'icon'        => 'fa fa-users',
             // 'label'       => 4,
             // 'label_color' => 'success',
@@ -309,22 +316,22 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        // ['header' => 'labels'],
+        // [
+        //     'text'       => 'important',
+        //     'icon_color' => 'red',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
     ],
 
     /*

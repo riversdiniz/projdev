@@ -15,10 +15,12 @@ use App\Http\Controllers\Pages\HomeController;
 */
 
 Route::get('/', [\App\Http\Controllers\Pages\HomeController::class, 'index']);
+Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::class, 'painel']);
 Route::get('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito']);
+Route::get('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar']);
 Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);
 
-Route::prefix('painel')->group(function(){
+Route::prefix('admin')->group(function(){
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin');
     // Route::get('login', 'Admin\Auth\LoginController@index')->name('login');
 });

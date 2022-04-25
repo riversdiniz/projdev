@@ -15,67 +15,33 @@
 
             <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                        <th>6</th>
-                        <th>7</th>
-                        <th>8</th>
-                        <th>9</th>
-                        <th>10</th>
-                        <th>11</th>
-                        <th>12</th>
-                    </tr>
-                </thead>
-
-                    <tbody>
+                    <thead>
                         <tr>
-                        <td>NOME1</td>
-                        <td>NOME2</td>
-                        <td>NOME3</td>
-                        <td>NOME4</td>
-                        <td>NOME5</td>
-                        <td>NOME6</td>
-                        <td>NOME7</td>
-                        <td>NOME8</td>
-                        <td>NOME9</td>
-                        <td>NOME10</td>
-                        <td>NOME11</td>
-                        <td>NOME12</td>
-                        </tr>
-                    </tbody>
-
-                    <tfoot>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
+                            <th>Código Produto</th>
+                            {{-- <th>Descrição do Produto</th>
+                            <th>Códido OP</th>
                             <th>4</th>
                             <th>5</th>
                             <th>6</th>
-                            <th>7</th>
-                            <th>8</th>
-                            <th>9</th>
-                            <th>10</th>
-                            <th>11</th>
-                            <th>12</th>
+                            <th>7</th> --}}
+
                         </tr>
-                    </tfoot>
+                    </thead>
+
+                    <tbody>
+
+                        {{-- @foreach ($defeitos as $defeito) --}}
+                           
+                                
+                        <tr>
+                            {{-- <td>{{$defeito->codlot}}</td> --}}
+                        </tr>
+
+                        {{-- @endforeach --}}
+                    </tbody>
                 </table>
             </div>
     </div>
 
-
-@endsection
-
-@section('css')
-    <link rel="stylesheet" href="">
-@endsection
-
-@section('js')
 
 @endsection
