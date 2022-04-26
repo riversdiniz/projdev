@@ -11,13 +11,10 @@ class HomeController extends Controller
 {
     public function index(){
         
-        // $defeitos = UsuVdefeito::all();
+        $defeitos = UsuVdefeito::all();
         // foreach($defeitos as $defeito)
         //     echo $defeito->codlot;
-        // dd($defeitos);
-
-        // $defeitos = DB::table('dbo.USU_VDEFEITOS')
-        //     ->get();
+        dd($defeitos);
 
         return view('pages.index');
     }
@@ -28,8 +25,6 @@ class HomeController extends Controller
 
     public function defeito() {
 
-        // $defeitos = DB::table('dbo.USU_VDEFEITOS')
-        //     ->get();
         $defeitos = UsuVdefeito::all();
 
         return View('pages.defeitos',['defeitos'=>$defeitos]);
@@ -37,21 +32,7 @@ class HomeController extends Controller
 
     public function pesquisar() {
 
-        $search = request('search');
-
-        if($search) {
-
-            $$pesquis = UsuVdefeito::where([
-                ['codlot', 'like', '%'.$search.'%']
-            ])->get();
-
-        } else {
-
-            $pesquis = UsuVdefeito::all();
-        }
-
-        return View('pages.pesqdef', ['pesquis' => $pesquis, 'search' => $search]);
-    //    return View('pages.pesqdef', compact('pesquis'));
+        return View('pages.pesqdef');
     }
 
     public function Consulta() {
