@@ -18,26 +18,18 @@
                     <thead>
                         <tr>
                             <th>Código Produto</th>
-                            {{-- <th>Descrição do Produto</th>
-                            <th>Códido OP</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>7</th> --}}
-
                         </tr>
                     </thead>
 
                     <tbody>
 
-                        {{-- @foreach ($defeitos as $defeito) --}}
-                           
-                                
+                        @foreach ($defeito as $defeitos)
+                                                      
                         <tr>
-                            {{-- <td>{{$defeito->codlot}}</td> --}}
+                            <td>{{$defeitos->codlot}}</td>
                         </tr>
 
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
