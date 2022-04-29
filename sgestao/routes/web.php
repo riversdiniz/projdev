@@ -22,3 +22,29 @@ Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::clas
 Route::get('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito']);
 Route::get('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar']);
 Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);
+Route::get('/pages/show', [\App\Http\Controllers\Pages\HomeController::class, 'ver']);
+
+
+// Route::prefix('/tarefas')->group(function(){
+//     Route::get('/', '');
+
+//     Route::get('add', ''); // Tela de adição
+//     Route::get('add', ''); // Ação de adição
+
+//     Route::get('edit/{$id}', ''); // Tela de edição
+//     Route::get('edit/{$id}', ''); // Ação de edição
+
+//     Route::get('delete/{$id}', ''); // Tela de edição
+
+//     Route::get('marcar/{$id}', ''); // Marcar resolvido/não.
+// });
+
+
+
+
+
+// Auth::routes();
+
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');

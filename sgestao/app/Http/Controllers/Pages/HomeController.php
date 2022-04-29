@@ -11,23 +11,32 @@ class HomeController extends Controller
 {
     public function index(){
         
-        $defeitos = UsuVdefeito::all();
-        // foreach($defeitos as $defeito)
-        //     echo $defeito->codlot;
-        dd($defeitos);
-
-        return view('pages.index');
+        $defeitos = UsuVdefeito::paginate(1);
+        
+        return View('pages.index', [
+            'defeitos' => $defeitos
+        ]);
     }
 
     public function painel() {
         return View('pages.dashboard');
     }
 
+    // public function defeito() {
+
+    //     $defeitos = UsuVdefeito::all();
+
+    //     return View('pages.defeitos',['defeitos'=>$defeitos]);
+    // }
+
     public function defeito() {
 
-        $defeitos = UsuVdefeito::all();
-
-        return View('pages.defeitos',['defeitos'=>$defeitos]);
+        $defeitos = UsuVdefeito::paginate(1);
+        
+        return View('pages.defeitos', [
+            'defeitos' => $defeitos
+        ]);
+        
     }
 
     public function pesquisar() {
@@ -37,5 +46,15 @@ class HomeController extends Controller
 
     public function Consulta() {
         return View('pages.consulta');
+    }
+
+    public function ver() {
+
+        $defeitos = UsuVdefeito::paginate(1);
+        
+        return View('pages.show', [
+            'defeitos' => $defeitos
+        ]);
+        
     }
 }
