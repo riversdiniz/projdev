@@ -254,7 +254,7 @@ return [
             // 'label_color' => 'success',
         ],
         [
-            'text'        => 'Qualidade BNC',
+            'text'        => 'Qualidade',
             'url'         => 'pages/pesqdef',
             'icon'        => 'fa fa-users',
             // 'label'       => 4,

@@ -20,7 +20,7 @@ use App\Http\Controllers\Pages\HomeController;
 Route::get('/', [\App\Http\Controllers\Pages\HomeController::class, 'index']);
 Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::class, 'painel']);
 Route::get('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito']);
-Route::get('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar']);
+Route::post('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar'])->name('pages.pesquisar');
 Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);
 Route::get('/pages/show', [\App\Http\Controllers\Pages\HomeController::class, 'ver']);
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\UsuVdefeito;
 
@@ -39,9 +38,10 @@ class HomeController extends Controller
         
     }
 
-    public function pesquisar() {
+    public function pesquisar(Request $request) {
 
-        return View('pages.pesqdef');
+            UsuVdefeito::where("codlot", $impRecebido)->first();
+            return View('pages.pesqdef', compact('defeitos'));
     }
 
     public function Consulta() {

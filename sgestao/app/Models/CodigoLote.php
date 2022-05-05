@@ -9,6 +9,5 @@ class CodigoLote extends Model
 {
     use HasFactory;
     
-    protected $table = 'USU_VDEFEITOS';
-    protected $fillable = ['despro', 'codlote', 'desetg', 'desdft'];
+    public $timestamps = false;
 }
