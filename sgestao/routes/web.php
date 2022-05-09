@@ -17,12 +17,12 @@ use App\Http\Controllers\Pages\HomeController;
 //     return view('pages.index');
 // });
 
+
 Route::get('/', [\App\Http\Controllers\Pages\HomeController::class, 'index']);
 Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::class, 'painel']);
-Route::get('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito']);
-Route::post('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar'])->name('pages.pesquisar');
+Route::any('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito'])->name('pages.defeitos');
+Route::any('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar'])->name('pages.pesqdef');
 Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);
-Route::get('/pages/show', [\App\Http\Controllers\Pages\HomeController::class, 'ver']);
 
 
 // Route::prefix('/tarefas')->group(function(){

@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UsuVdefeito;
 
+
 class HomeController extends Controller
 {
     public function index(){
         
-        $defeitos = UsuVdefeito::paginate(1);
+        $defeitos = UsuVdefeito::all();
         
         return View('pages.index', [
             'defeitos' => $defeitos
@@ -21,40 +22,27 @@ class HomeController extends Controller
         return View('pages.dashboard');
     }
 
-    // public function defeito() {
-
-    //     $defeitos = UsuVdefeito::all();
-
-    //     return View('pages.defeitos',['defeitos'=>$defeitos]);
-    // }
-
-    public function defeito() {
-
-        $defeitos = UsuVdefeito::paginate(1);
+    public function defeito(){
         
-        return View('pages.defeitos', [
+        $defeitos = UsuVdefeito::all();
+        
+        return View('pages.index', [
             'defeitos' => $defeitos
         ]);
-        
     }
 
-    public function pesquisar(Request $request) {
-
-            UsuVdefeito::where("codlot", $impRecebido)->first();
-            return View('pages.pesqdef', compact('defeitos'));
+    public function pesquisar(Request $request) { 
+        $pesq = UsuVdefeito::when(isset($request->search), function ($p) use ($request) {
+        $p->where('codlot', 'like', '%'.$request->search.'%');
+        })->paginate(); 
+        return View('pages.pesqdef', [ 
+            'pesq' => $pesq 
+        ]);   
     }
 
     public function Consulta() {
-        return View('pages.consulta');
+        
+        return View('pages.consulta'); 
     }
 
-    public function ver() {
-
-        $defeitos = UsuVdefeito::paginate(1);
-        
-        return View('pages.show', [
-            'defeitos' => $defeitos
-        ]);
-        
-    }
 }

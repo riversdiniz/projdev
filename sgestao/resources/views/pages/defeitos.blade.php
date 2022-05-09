@@ -1,20 +1,32 @@
 @extends('adminlte::page')
 
-@section('title', 'Defeitos')
+@section('title', 'defeito')
 
 @section('content_header')
 
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form action="{{ route('pages.pesqdef') }}" method="post">
+            @csrf
+            <div class="input-group">
+            <input type="text" name="search" class="form-control form-control-lg" placeholder="Consulta Nº OP">
+            <div class="input-group-append">
+            <button type="submit" class="btn btn-lg btn-default"><i class="fa fa-search"></i></button>
+            </div>
+            </div>
+            </form>
+        </div>
+    </div>
 
-<div class="card-body">
-
+    <div class="card-body">
 <div class="card card-primary">
     <div class="card-header">
         <h3 class="card-title">BOLETIM DE NÃO CONFORMIDADE</h3>
+
     </div>
-    
-    <div class="card-body">
+        <div class="card-body">
+         
         <form>
-            {{-- @foreach ($defeitos as $d) --}}
                 <div class="row">
                     <div class="col-sm-3">
                     <div class="form-group">
@@ -26,32 +38,30 @@
                     </div>   
                     </div>
 
+                @foreach ($pesq as $p)
+                    
+                
                 <div class="col-sm-2">
                     <div class="form-group">
-                    <label>Nº OP</label>
-                    <select class="form-control" disabled>
-                        <option></option>
-                    </select>  
+                        <label>Nº OP</label>
+                        <input class="form-control" type="text" placeholder="{{$p->codlot}}" disabled>
                     </div>
                 </div>
-
+                
                 <div class="col-sm-2">
                     <div class="form-group">
-                    <label>Código</label>
-                    <select class="form-control" disabled>
-                        <option></option>
-                    </select>
-                    </div>   
+                        <label>Código</label>
+                        <input class="form-control" type="text" placeholder="" disabled>
                     </div>
-
+                </div>
+                @endforeach
                 <div class="col-sm-3">
                     <div class="form-group">
-                    <label>Produto</label>
-                    <select class="form-control" disabled>
-                        <option></option>
-                    </select>
-                    </div>   
+                        <label>Produto</label>
+                        <input class="form-control" type="text" placeholder="" disabled>
+                    </div>
                 </div>
+
 
                     <div class="col-sm-2">
                     <div class="form-group">
@@ -62,119 +72,35 @@
                     </select>  
                     </div>
                 </div>
-
                 <div class="col-sm-12">
                     <div class="form-group">
-                    <label>Detector</label>
-                    <select class="form-control">
-                        <option>River Diniz</option>
-                    </select>
-                    </div>   
+                        <label>Dectector</label>
+                        <input class="form-control" type="text" placeholder="" disabled>
+                    </div>
                 </div>
-                
-                {{-- @endforeach --}}
         </form>
-    </div>
-
-    <div id="jsGrid"></div>
-
-
-    <div class="row row-cols-12">
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Revisar 100%</label>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Retrabalhar</label>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Autorizar</label>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Outras Especificar</label>
-            </div>
-        </div>
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox">
-                <label class="form-check-label">Scrapear</label>
-            </div>
-        </div>
         
     </div>
 
-<br>
-    <div class="col-sm-12">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Disposição dos defeitos encontrados</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Quantidade da amostragem:</td>
-                        <td>
-                            <div class="col-sm">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Devolver para o Processo para mais uma vesão 100%</label>
-                            </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Quantidade de defeitos detectados pós revisão ou pós retrabalho pelo CQ:</td>
-                        <td>
-                            <div class="col-sm">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Devolver para o Processo para mais uma vesão 100%</label>
-                            </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Responsável pela Reinspeção:</td>
-                        <td>
-                            <label>Outras observações</label>
-                            <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="d-flex justify-content-center">
+        
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">Quantidade</div>
+                <div class="col">Defeito</div>
+                <div class="col">Origem</div>
+            </div>
+             @foreach ($pesq as $p)            
+            <div class="row align-items-center">
+                <div class="col">{{$p->qtdrfg}}</div>
+                <div class="col">{{$p->desdft}}</div>
+                <div class="col">{{$p->desaco}}</div>
+            </div>
+            @endforeach
         </div>
 
+    </div>
 
-    <table>
-        <thead>
-            <tr></tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <th>Confirmação de que o rejeito está não conforme (amostragem no rejeito):</th>
-            </tr>
-            <tr>
-                <th>Análise de rejeito CQ. Inspecionadas:____Defeito____(_) REPROVADO - SCRAPEAR</th>
-            </tr>
-            <tr>
-                <th>Ass. REVISADO: PEÇAS OK encontradas:___Peças não conformes encontradas:___SCRAPEAR</th>
-            </tr>
-        </tbody>
-    </table>
 
     <br>
         <textarea class="form-control" rows="3" placeholder="Considerações do comercial"></textarea>
@@ -231,45 +157,9 @@
 <button type="button" class="btn btn-success btn-lg btn-block">SALVAR</button>
 
 </div>
-@endsection
-
-@section('css')
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
- 
-@endsection
-
-@section('js')
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-
-<script>
-    @foreach ($defeitos as $d)
-        var UsuVdefeito = [
-            { 
-            "Quantidade defeito": "{{$d->qtdrfg}}", 
-            "Tipo de Defeito": "{{$d->desdft}}",
-            "Origem do defeito": "{{$d->desaco}}",
-            },
-        ];
-        
-    @endforeach
     
- 
-    $("#jsGrid").jsGrid({
-        width: "100%",
-        height: "400px",
- 
-        data: UsuVdefeito,
- 
-        fields: [
-            { name: "Quantidade defeito", type: "number", width: 100 },
-            { name: "Tipo de Defeito", type: "text", width: 100 },
-            { name: "Origem do defeito", type: "text", width: 150 },
-            { name: "Quantidade defeito", type: "number", width: 100 },
-            { name: "Tipo de Defeito", type: "text", width: 100 },
-            { name: "Origem do defeito", type: "text", width: 150 }
-            
-        ]
-    });
-</script>
 @endsection
+
+
+
+

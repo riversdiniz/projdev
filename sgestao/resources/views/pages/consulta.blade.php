@@ -8,8 +8,5 @@
 
 @section('content')
     ...CONSULTA SALDO...
-@endsection
 
-@section('css')
-    <link rel="stylesheet" href="">
 @endsection
