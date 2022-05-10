@@ -38,28 +38,34 @@
                     </div>   
                     </div>
 
-                  @foreach ($pesq as $p)  
+ 
                 <div class="col-sm-2">
+                    @foreach ($pesq as $p)
                     <div class="form-group">
                         <label>Nº OP</label>
                         <input class="form-control" type="text" placeholder="{{$p->codlot}}" disabled>
                     </div>
+                    @endforeach
                 </div>
-                 @endforeach
+
                 <div class="col-sm-2">
+                    @foreach ($pesq as $p)
                     <div class="form-group">
                         <label>Código</label>
-                        <input class="form-control" type="text" placeholder="" disabled>
+                        <input class="form-control" type="text" placeholder="{{$p->codpro}}" disabled>
                     </div>
+                    @endforeach
                 </div>
 
                 <div class="col-sm-3">
+                    @foreach ($pesq as $p)
                     <div class="form-group">
                         <label>Produto</label>
-                        <input class="form-control" type="text" placeholder="" disabled>
+                        <input class="form-control" type="text" placeholder="{{$p->despro}}" disabled>
                     </div>
+                    @endforeach
                 </div>
-
+                 
 
                     <div class="col-sm-2">
                     <div class="form-group">
@@ -87,14 +93,18 @@
                 <div class="col">Quantidade</div>
                 <div class="col">Defeito</div>
                 <div class="col">Origem</div>
-            </div>
-             @foreach ($pesq as $p)            
+            </div>            
+
+               
+            @foreach ($pesq as $p)
+                
             <div class="row align-items-center">
                 <div class="col">{{$p->qtdrfg}}</div>
                 <div class="col">{{$p->desdft}}</div>
                 <div class="col">{{$p->desaco}}</div>
             </div>
             @endforeach
+
         </div>
 
     </div>

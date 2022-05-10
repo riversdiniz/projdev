@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'defeito')
+@section('title', 'Defeitos')
 
 @section('content_header')
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form action="{{ route('pages.pesqdef') }}" method="post">
+            <form action="{{ route('pages.defeitos') }}" method="post">
             @csrf
             <div class="input-group">
             <input type="text" name="search" class="form-control form-control-lg" placeholder="Consulta Nº OP">
@@ -38,23 +38,21 @@
                     </div>   
                     </div>
 
-                @foreach ($pesq as $p)
-                    
-                
+
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label>Nº OP</label>
-                        <input class="form-control" type="text" placeholder="{{$p->codlot}}" disabled>
+                        <input class="form-control" type="text" placeholder="" disabled>
                     </div>
                 </div>
-                
+
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label>Código</label>
                         <input class="form-control" type="text" placeholder="" disabled>
                     </div>
                 </div>
-                @endforeach
+
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Produto</label>
@@ -90,13 +88,17 @@
                 <div class="col">Defeito</div>
                 <div class="col">Origem</div>
             </div>
-             @foreach ($pesq as $p)            
+
+           @foreach ($defeitos as $d)
+
             <div class="row align-items-center">
-                <div class="col">{{$p->qtdrfg}}</div>
-                <div class="col">{{$p->desdft}}</div>
-                <div class="col">{{$p->desaco}}</div>
+                <div class="col">{{$d->qtdrfg}}</div>
+                <div class="col">{{$d->desdft}}</div>
+                <div class="col">{{$d->desaco}}</div>
             </div>
+            
             @endforeach
+
         </div>
 
     </div>

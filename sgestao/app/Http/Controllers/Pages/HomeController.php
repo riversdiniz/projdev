@@ -12,6 +12,8 @@ class HomeController extends Controller
     public function index(){
         
         $defeitos = UsuVdefeito::all();
+
+        dd($defeitos);
         
         return View('pages.index', [
             'defeitos' => $defeitos
@@ -22,22 +24,27 @@ class HomeController extends Controller
         return View('pages.dashboard');
     }
 
-    public function defeito(){
+    public function defeito() { 
         
-        $defeitos = UsuVdefeito::all();
+        $defeitos = UsuVdefeito::where("codlot", $defeitos)->first();
         
-        return View('pages.index', [
+        return View('pages.defeitos', [
             'defeitos' => $defeitos
-        ]);
+        ]); 
     }
 
     public function pesquisar(Request $request) { 
         $pesq = UsuVdefeito::when(isset($request->search), function ($p) use ($request) {
         $p->where('codlot', 'like', '%'.$request->search.'%');
-        })->paginate(); 
-        return View('pages.pesqdef', [ 
+        })->paginate();
+        
+        return View('pages.pesqdef', [
             'pesq' => $pesq 
-        ]);   
+        ]   
+    );
+        // return View('pages.pesqdef', [
+        //     'search' => $request->search 
+        // ]);   
     }
 
     public function Consulta() {
