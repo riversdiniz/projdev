@@ -4,6 +4,15 @@
 
 @section('content_header')
 
+    <style>
+
+        .b {
+            border: 1px solid rgba(163, 161, 161, 0.397);
+        }
+
+    </style>
+    
+
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <form action="{{ route('pages.pesqdef') }}" method="post">
@@ -25,49 +34,49 @@
 
     </div>
         <div class="card-body">
-         
+         <div class="container">
         <form>
-                <div class="row">
-                    <div class="col-sm-3">
+                <div class="row rounded b">
+                    <div class="col-sm-3 text-center">
                     <div class="form-group">
                     <label>Origem</label>
-                    <select class="form-control">
-                        <option>Outros</option>
-                        <option>Não Atendimento de OP</option>
-                    </select>
+                        <select class="form-control">
+                            <option>Outros</option>
+                            <option>Não Atendimento de OP</option>
+                        </select>
                     </div>   
                     </div>
-
- 
-                <div class="col-sm-2">
                     @foreach ($pesq as $p)
+                    @endforeach
+                <div class="col-sm-2 text-center">
+                    
                     <div class="form-group">
                         <label>Nº OP</label>
                         <input class="form-control" type="text" placeholder="{{$p->codlot}}" disabled>
                     </div>
-                    @endforeach
+                    
                 </div>
 
-                <div class="col-sm-2">
-                    @foreach ($pesq as $p)
+                <div class="col-sm-2 text-center">
+
                     <div class="form-group">
                         <label>Código</label>
                         <input class="form-control" type="text" placeholder="{{$p->codpro}}" disabled>
                     </div>
-                    @endforeach
+
                 </div>
 
-                <div class="col-sm-3">
-                    @foreach ($pesq as $p)
+                <div class="col-sm-3 text-center">
+
                     <div class="form-group">
                         <label>Produto</label>
                         <input class="form-control" type="text" placeholder="{{$p->despro}}" disabled>
                     </div>
-                    @endforeach
+
                 </div>
                  
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 text-center">
                     <div class="form-group">
                     <label>Turno</label>
                     <select class="form-control">
@@ -76,71 +85,246 @@
                     </select>  
                     </div>
                 </div>
-                <div class="col-sm-12">
+
+                <div class="col-sm-3">
+
+                </div>
+
+                <div class="col-sm-3 text-center">
                     <div class="form-group">
-                        <label>Dectector</label>
-                        <input class="form-control" type="text" placeholder="" disabled>
+                        <label>Detector</label>
+                        <select class="form-control">
+                            <option></option>
+                            <option>João Carlos</option>
+                            <option>Gerson Muniz</option>
+                        </select>
                     </div>
                 </div>
+
+                <div class="col-sm-3 text-center">
+                    <div class="form-group">
+                        <label>Visto</label>
+                        <select class="form-control">
+                            <option></option>
+                            <option>Nome UM</option>
+                            <option>Nome DOIS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+
+                </div>
         </form>
+         </div>
         
     </div>
-
-    <div class="d-flex justify-content-center">
+        <br>
+        <div class="text-center">
+            <label>Quantidade - Descrição - ORIGEM</label>
+        </div>
+    <div class="container">
         
-        <div class="container">
-            <div class="row align-items-start">
-                <div class="col">Quantidade</div>
-                <div class="col">Defeito</div>
-                <div class="col">Origem</div>
-            </div>            
-
-               
+        <div class="row row-cols-3 row-cols-lg-3 rounded b">
+            <div class="col text-center"><strong>Quantidade</strong></div>
+            <div class="col text-center"><strong>Defeito</strong></div>
+            <div class="col text-center"><strong>Origem</strong></div>
             @foreach ($pesq as $p)
-                
-            <div class="row align-items-center">
-                <div class="col">{{$p->qtdrfg}}</div>
-                <div class="col">{{$p->desdft}}</div>
-                <div class="col">{{$p->desaco}}</div>
-            </div>
+            <div class="col text-center">{{$p->qtdrfg}}</div>
+            <div class="col text-center">{{$p->desdft}}</div>
+            <div class="col text-center">{{$p->desaco}}</div>
             @endforeach
+            <div class="col-4 col-lg-4 text-center"><strong>Pedido da OP: {{$p->qtdprv}}</strong></div>
+            <div class="col-4 col-lg-4 text-center"><strong>Peças Conforme: {{$p->qtdre1}}</strong></div>
+            <div class="col-4 col-lg-4 text-center"><strong>Perdas da OP: {{$p->totrfg}}</strong></div>
+            
+        </div>
+    </div>
+        <br>
+        <div class="text-center">
+            <label>Análise critica do CQ</label>
+        </div>
+    <div class="container rounded b">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 text-center">
+            <div class="col">
+                <div class="form-group">
+                        <div class="form-check">
+                            <br>
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label text-center">Revisar 100%</label>
+                        </div>
+                    </div>
+            </div>
 
+            <div class="col">
+                <div class="form-group">
+                        <div class="form-check">
+                            <br>
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label text-center">Retrabalhar</label>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                        <div class="form-check">
+                            <br>
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label text-center">Autorizar</label>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                        <div class="form-check">
+                            <br>
+                            <input class="form-check-input" type="checkbox">
+                            <label class="form-check-label text-center">Scrapear</label>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <div class="form-check">
+                        <br>
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label text-center">Especificar</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2"></div>
+                <div class="col-md-auto">
+                    <div class="form-group  text-center">
+                        <label>Responsável</label>
+                        <select class="form-control">
+                            <option></option>
+                            <option>Nome CQ UM</option>
+                            <option>Nome CQ DOIS</option>
+                        </select>
+            </div>
+                </div>
+                <div class="col col-lg-2"></div>
+            </div>
+        </div>
+        <br>        
+        <div class="text-center">
+            <label>Reinspeção da Revisão 100% ou RETRABALHO</label>
+            <br>
         </div>
 
-    </div>
+       <div class="container rounded b">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+            <br>
+            <p>Disposição dos efeitos encontrados</p>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col">
+            Quantidade da amostragem:
+            <input type='number' id='filhos' name='filhos'>          
+            </div>
+
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label text-center">REJEITAR TUDO - Enviar para a coleta seletiva - SCRAP</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            Quantidade de defeitos detectados pós revisão ou pós retrabalho pelo CQ:
+            <input type='number' id='filhos' name='filhos'>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label text-center">Devolver para o PROCESSO para mais uma REVISÃO 100%</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label text-center">Devolver para o PROCESSO para mais uma REVISÃO 100%</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+             Responsável pela Reinspeção:
+                <select class="form-control">
+                    <option></option>
+                    <option>Nome Responsável UM</option>
+                    <option>Nome Responsável DOIS</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="msg">Outros</label>
+                <textarea id="msg" name="msg" rows="4" cols="70"></textarea>
+            </div>
+        </div>
+
+       </div>
 
     <br>
-        <textarea class="form-control" rows="3" placeholder="Considerações do comercial"></textarea>
+        <div class="container rounded b">
+            <div class="text-center">
+                <br>
+                <label>Considerações do comercial</label>
+                <textarea class="form-control" rows="3"></textarea>
+                <br>
+            </div>
+        </div>
+        
     <br>
 
+    <div class="container rounded b">
     <div class="card-body">
-        <div class="col-sm-12">
+        <div class="col-sm-12 text-center">
                 <form>
                          <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 ">
                             <div class="form-group">
                             <label>Ciente SGI</label>
                                 <input class="form-control" type="text" placeholder="SGI...">
                             </div>   
                             </div>
 
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Date:</label>
-                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
-                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class='col-sm-4'>
+                                <div class="form-group">
+                                    <label for="data-pagamento">Data</label>
+                                    <!-- Datepicker as text field -->         
+                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                    <input  type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                    <div class="input-group-addon" >
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
                         <div class="col-sm-4">
                             <div class="form-group">
                             <label>Ciente Diretoria</label>
-                                <input class="form-control" type="text" placeholder="Diretoria...">
+                                <input class="form-control" type="text" placeholder="...">
                             </div>
                         </div>
                 </form>
@@ -162,12 +346,13 @@
                 </div>
             </div>
 
-<button type="button" class="btn btn-success btn-lg btn-block">SALVAR</button>
+            <div class="text-center">
+                <form action="">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+    </div>
 
 </div>
     
 @endsection
-
-
-
-

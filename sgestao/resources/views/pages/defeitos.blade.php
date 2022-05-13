@@ -80,8 +80,7 @@
         
     </div>
 
-    <div class="d-flex justify-content-center">
-        
+
         <div class="container">
             <div class="row align-items-start">
                 <div class="col">Quantidade</div>
@@ -101,7 +100,24 @@
 
         </div>
 
-    </div>
+        <div class="container">
+            <div class="row row-cols-2 row-cols-lg-3">
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+                <div class="col-4 col-lg-2">Column</div>
+            </div>
+        </div>
+
+        
 
 
     <br>

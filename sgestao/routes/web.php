@@ -20,6 +20,7 @@ use App\Http\Controllers\Pages\HomeController;
 
 Route::get('/', [\App\Http\Controllers\Pages\HomeController::class, 'index']);
 Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::class, 'painel']);
+Route::get('/pages/status', [\App\Http\Controllers\Pages\HomeController::class, 'statustime']);
 Route::any('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito'])->name('pages.defeitos');
 Route::any('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar'])->name('pages.pesqdef');
 Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);

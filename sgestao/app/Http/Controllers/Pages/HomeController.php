@@ -11,17 +11,19 @@ class HomeController extends Controller
 {
     public function index(){
         
-        $defeitos = UsuVdefeito::all();
+        // $defeitos = UsuVdefeito::all();
 
-        dd($defeitos);
+        // dd($defeitos);
         
-        return View('pages.index', [
-            'defeitos' => $defeitos
-        ]);
+        return View('pages.index');
     }
 
     public function painel() {
         return View('pages.dashboard');
+    }
+
+    public function statustime() {
+        return View('pages.status');
     }
 
     public function defeito() { 

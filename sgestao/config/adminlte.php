@@ -246,10 +246,17 @@ return [
         //     'url'  => 'admin/blog',
         //     'can'  => 'manage-blog',
         // ],
-                [
-            'text'        => 'Dashboard',
+        [
+            'text'        => ' Dashboard',
             'url'         => 'pages/dashboard',
             'icon'        => 'fas fa-tachometer-alt',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Status OP',
+            'url'         => 'pages/status',
+            'icon'        => 'fa fa-hourglass-half',
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
