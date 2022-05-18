@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Pages\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +20,10 @@ use App\Http\Controllers\Pages\HomeController;
 
 Route::get('/', [\App\Http\Controllers\Pages\HomeController::class, 'index']);
 Route::get('/pages/dashboard', [\App\Http\Controllers\Pages\HomeController::class, 'painel']);
-Route::get('/pages/status', [\App\Http\Controllers\Pages\HomeController::class, 'statustime']);
-Route::any('/pages/defeitos', [\App\Http\Controllers\Pages\HomeController::class, 'defeito'])->name('pages.defeitos');
-Route::any('/pages/pesqdef', [\App\Http\Controllers\Pages\HomeController::class, 'pesquisar'])->name('pages.pesqdef');
-Route::get('/pages/consulta', [\App\Http\Controllers\Pages\HomeController::class, 'consulta']);
+Route::get('/pages/status', [\App\Http\Controllers\Pages\StatusController::class, 'statustime']);
+Route::any('/pages/defeitos', [\App\Http\Controllers\Pages\DefeitoController::class, 'defeito'])->name('pages.defeitos');
+Route::any('/pages/pesqdef', [\App\Http\Controllers\Pages\PesquisarController::class, 'pesquisar'])->name('pages.pesqdef');
+Route::get('/pages/consulta', [\App\Http\Controllers\Pages\ConsultaController::class, 'consulta']);
 
 
 // Route::prefix('/tarefas')->group(function(){

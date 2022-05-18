@@ -254,7 +254,7 @@ return [
             // 'label_color' => 'success',
         ],
         [
-            'text'        => 'Status OP',
+            'text'        => 'Status BNC',
             'url'         => 'pages/status',
             'icon'        => 'fa fa-hourglass-half',
             // 'label'       => 4,

@@ -15,43 +15,13 @@ class HomeController extends Controller
 
         // dd($defeitos);
         
-        return View('pages.index');
-    }
-
-    public function painel() {
         return View('pages.dashboard');
     }
 
-    public function statustime() {
-        return View('pages.status');
-    }
+    public function painel() {
 
-    public function defeito() { 
-        
-        $defeitos = UsuVdefeito::where("codlot", $defeitos)->first();
-        
-        return View('pages.defeitos', [
-            'defeitos' => $defeitos
-        ]); 
-    }
+        return View('pages.dashboard');
 
-    public function pesquisar(Request $request) { 
-        $pesq = UsuVdefeito::when(isset($request->search), function ($p) use ($request) {
-        $p->where('codlot', 'like', '%'.$request->search.'%');
-        })->paginate();
-        
-        return View('pages.pesqdef', [
-            'pesq' => $pesq 
-        ]   
-    );
-        // return View('pages.pesqdef', [
-        //     'search' => $request->search 
-        // ]);   
-    }
-
-    public function Consulta() {
-        
-        return View('pages.consulta'); 
     }
 
 }

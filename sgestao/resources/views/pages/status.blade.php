@@ -51,16 +51,16 @@
   </div>
   <br>
   <div class="row">
-      <div class="col-4">
-                  <div class="col-md-12">
-            <div class="small-box bg-danger text-center">
-                <div class="inner">
-                    <h3>OP: IMP001</h3>
-                    <p>aguardando liberação</p>
+        <div class="col-4">
+            <div class="col-md-12">
+                <div class="small-box bg-danger text-center">
+                    <div class="inner">
+                        <h3>OP: IMP001</h3>
+                        <p>aguardando liberação</p>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
 
       <div class="col-4">
                   <div class="col-md-12">
