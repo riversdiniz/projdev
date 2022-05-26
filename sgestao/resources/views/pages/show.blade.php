@@ -1,21 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', 'Consultar BNC')
+@section('title', 'BNC')
 
 @section('content_header')
 
 <style>
 
-    /* .b {
-        border: 1px solid #5C5C5C;
-        
-    } */
+    .b {
+        border: 1px solid rgb(0, 0, 0);
+    }
+
+    
 
 </style>
 
 <div class="card card-primary">
     <div class="card-header">
-    <h5 class="text-center">BOLETIM DE NÃO CONFORMIDADE</h5>
+    <h3 class="card-title">BOLETIM DE NÃO CONFORMIDADE</h3>
     </div>
 
     {{-- <div class="alert alert-dismissible">
@@ -25,45 +26,39 @@
             @endif
         </div>
     </div> --}}
-    
     <div class="card-body">
 
     <form action="/pages" method="POST">
     @csrf
-
-    <div class="col-sm-12 text-center">
-        <br>
-        <label>Identificação e Segregação</label>
-        <hr>
-    </div>
-
     <div class="row">
     <div class="col-sm-3">
     
-    <div class="form-group text-center">
+    <div class="form-group">
         <label>Origem</label>
-        <input class="form-control text-center" type="text" placeholder="Não Atendimento de OP" disabled>
+        <select class="form-control text-center">
+            <option>Outros</option>
+            <option>Não Atendimento de OP</option>
         </select>
     </div>
     </div>
 
     @foreach ($defeitos as $d)
     @endforeach
-    <div class="col-sm-2 text-center">
+    <div class="col-sm-2">
         <div class="form-group">
             <label>Nº OP</label>
             <input class="form-control text-center" type="text" placeholder="{{$d->codlot}}" disabled>
         </div>
     </div>
 
-    <div class="col-sm-2 text-center">
+    <div class="col-sm-2">
         <div class="form-group">
             <label>Código</label>
             <input class="form-control text-center" type="text" placeholder="{{$d->codpro}}" disabled>
         </div>
     </div>
 
-    <div class="col-sm-3 text-center">
+    <div class="col-sm-3">
         <div class="form-group">
             <label>Produto</label>
             <input class="form-control text-center" type="text" placeholder="{{$d->despro}}" disabled>
@@ -71,9 +66,12 @@
     </div>
 
     <div class="col-sm-2">
-        <div class="form-group text-center">
+        <div class="form-group">
             <label>Turno</label>
-            <input class="form-control text-center" type="text" placeholder="1º Turno" disabled>
+            <select class="form-control text-center">
+                <option>1º Turno</option>
+                <option>2º Turno</option>
+            </select>  
         </div>
     </div>
 
@@ -84,15 +82,15 @@
     
     <div class="col-sm-3 text-center">
         <div class="form-group">
-            {{-- <label for="title">Gerência</label>
-            <input type="text" class="form-control" id="usu_gerencia" name="usu_gerencia" placeholder=""> --}}
+            <label for="title">Gerência</label>
+            <input type="text" class="form-control" id="usu_gerencia" name="usu_gerencia" placeholder="">
         </div>
     </div>
 
     <div class="col-sm-3 text-center">
         <div class="form-group">
-            {{-- <label for="title">visto</label>
-            <input type="text" class="form-control" id="usu_visto" name="usu_visto" placeholder=""> --}}
+            <label for="title">visto</label>
+            <input type="text" class="form-control" id="usu_visto" name="usu_visto" placeholder="">
         </div>
     </div>
 
@@ -109,22 +107,22 @@
     <div class="container">
         
         <div class="row row-cols-3 row-cols-lg-3 rounded b">
-            <div class="col text-center"><strong>QUANTIDADE</strong></div>
-            <div class="col text-center"><strong>DEFEITOS</strong></div>
-            <div class="col text-center"><strong>ORIGEM</strong></div>
+            <div class="col text-center"><strong>Quantidade</strong></div>
+            <div class="col text-center"><strong>Defeito</strong></div>
+            <div class="col text-center"><strong>Origem</strong></div>
             @foreach ($defeitos as $d)
             <div class="col text-center">{{$d->qtdrfg}}</div>
             <div class="col text-center">{{$d->desdft}}</div>
             <div class="col text-center">{{$d->desaco}}</div>
             @endforeach
-            <div class="col-4 col-lg-4 text-center"><br><strong>Pedido da OP: {{$d->qtdprv}}</strong></div>
-            <div class="col-4 col-lg-4 text-center"><br><strong>Peças Conforme: {{$d->qtdre1}}</strong></div>
-            <div class="col-4 col-lg-4 text-center"><br><strong>Perdas da OP: {{$d->totrfg}}</strong><hr></div>
+            <div class="col-4 col-lg-4 text-center"><strong>Pedido da OP: {{$d->qtdprv}}</strong></div>
+            <div class="col-4 col-lg-4 text-center"><strong>Peças Conforme: {{$d->qtdre1}}</strong></div>
+            <div class="col-4 col-lg-4 text-center"><strong>Perdas da OP: {{$d->totrfg}}</strong></div>
             
         </div>
     </div>
 
-    {{-- <div class="col-sm-12 text-center">
+    <div class="col-sm-12 text-center">
         <br>
         <label>Análise critica do CQ</label>
         <hr>
@@ -308,7 +306,7 @@
         <br>
         <input type="submit" name="submit" value="Salvar">
     </div>
-    </div> --}}
+    </div>
 
 </div>
     
@@ -317,14 +315,5 @@
     </div>
     
     </div>
-
-@endsection
-
-@section('footer')
-
-    <div class="col-sm-12 text-center">
-        <strong>Copyright © 2022 <a href="#">Impressora Amazonense Ltda</a>.</strong> Todos os direitos reservados.
-    </div>
-
 
 @endsection

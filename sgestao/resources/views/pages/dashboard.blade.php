@@ -118,10 +118,7 @@
 
 
 @section('footer')
-
-    <div class="float-right d-none d-sm-block">
-    <b>Versão</b> 1.0.0
+    <div class="col-sm-12 text-center">
+        <strong>Copyright © 2022 <a href="#">Impressora Amazonense Ltda</a>.</strong> Todos os direitos reservados.
     </div>
-    <strong>Copyright © 2022 <a href="#">Impressora Amazonense Ltda</a>.</strong> Todos os direitos reservados.
-
 @endsection

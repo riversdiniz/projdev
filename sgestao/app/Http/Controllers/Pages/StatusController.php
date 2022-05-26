@@ -8,7 +8,19 @@ use App\Models\UsuVdefeito;
 
 class StatusController extends Controller
 {
-    public function statustime() {
-        return View('pages.status');
+    public function statustime(Request $request) { 
+        $status = UsuVdefeito::when(isset($request->search), function ($s) use ($request) {
+        $s->where('codlot', 'like', '%'.$request->search.'%');
+        })->paginate();
+        
+        return View('pages.status', [
+            'status' => $status 
+        ]   
+    );
+ 
     }
+
+    // public function statustime() {
+    //     return View('pages.status');
+    // }
 }

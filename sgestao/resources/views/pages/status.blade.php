@@ -4,11 +4,11 @@
     
 @section('content_header')
 
-    {{-- <style>
+    <style>
         div {
             border: 1px solid rgba(163, 161, 161, 0.397);
         }
-    </style> --}}
+    </style>
 
 @endsection
 
@@ -51,36 +51,53 @@
   </div>
   <br>
   <div class="row">
-        <div class="col-4">
-            <div class="col-md-12">
-                <div class="small-box bg-danger text-center">
-                    <div class="inner">
-                        <h3>OP: IMP001</h3>
-                        <p>aguardando liberação</p>
-                    </div>
+      <div class="col-lg-4 col-4">
+            <div class="small-box bg-info">
+                @foreach ($status as $s)
+                @endforeach
+                <div class="inner">
+                    <h3>OP: {{$s->codlot}}</h3>
+                    
+                    <p>Quantidade Produto: {{$s->qtdre1}}</p>
+                    
+                    <p>Quantidade Produzinda: {{$s->qtdrfg}}</p>
+                    
+                    <p>Dias Parado: {{$s->qtdrfg}}</p>
                 </div>
-            </div>
+            <div class="icon">
+            <i class="ion ion-bag"></i>
+        </div>
+        <a href="{{ route('pages.defeitos') }}" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
         </div>
 
-      <div class="col-4">
-                  <div class="col-md-12">
-            <div class="small-box bg-danger text-center">
+        <div class="col-lg-4 col-4">
+            <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>OP: IMP002</h3>
-                    <p>aguardando liberação</p>
+                    <h3>OP:</h3>
+                    <p>...</p>
                 </div>
-            </div>
+            <div class="icon">
+            <i class="ion ion-bag"></i>
         </div>
-      </div>
+        <a href="{{ route('pages.defeitos') }}" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        </div>
 
-            <div class="col-4">
-                  <div class="col-md-12">
-            <div class="small-box bg-danger text-center">
+        <div class="col-lg-4 col-4">
+            <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>OP: IMP002</h3>
-                    <p>aguardando liberação</p>
+                    <h3>OP:</h3>
+                    <p>...</p>
                 </div>
-            </div>
+            <div class="icon">
+            <i class="ion ion-bag"></i>
+        </div>
+        <a href="{{ route('pages.defeitos') }}" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        </div>
+
+
         </div>
       </div>
   </div>

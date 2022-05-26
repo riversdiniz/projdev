@@ -16,6 +16,7 @@
 
 @section('content')
 
+
 <div class="card card-primary">
     <div class="card-header">
     <h3 class="card-title"></h3>
@@ -51,9 +52,8 @@
 
 @section('footer')
 
-    <div class="float-right d-none d-sm-block">
-    <b>Versão</b> 1.0.0
-    </div>
+<div class="col-sm-12 text-center">
     <strong>Copyright © 2022 <a href="#">Impressora Amazonense Ltda</a>.</strong> Todos os direitos reservados.
+</div>
 
 @endsection
